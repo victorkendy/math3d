@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "math3d", "math3d.vcproj", "{DED62760-09CF-4600-85BF-B53E5E93850D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testes", "..\testes\testes.vcproj", "{33A2C9EA-960D-4F11-B915-6622D80FD078}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DED62760-09CF-4600-85BF-B53E5E93850D} = {DED62760-09CF-4600-85BF-B53E5E93850D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "newFeatureTest", "..\newFeatureTest\newFeatureTest.vcproj", "{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DED62760-09CF-4600-85BF-B53E5E93850D} = {DED62760-09CF-4600-85BF-B53E5E93850D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DED62760-09CF-4600-85BF-B53E5E93850D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DED62760-09CF-4600-85BF-B53E5E93850D}.Debug|Win32.Build.0 = Debug|Win32
+		{DED62760-09CF-4600-85BF-B53E5E93850D}.Release|Win32.ActiveCfg = Release|Win32
+		{DED62760-09CF-4600-85BF-B53E5E93850D}.Release|Win32.Build.0 = Release|Win32
+		{33A2C9EA-960D-4F11-B915-6622D80FD078}.Debug|Win32.ActiveCfg = Debug|Win32
+		{33A2C9EA-960D-4F11-B915-6622D80FD078}.Debug|Win32.Build.0 = Debug|Win32
+		{33A2C9EA-960D-4F11-B915-6622D80FD078}.Release|Win32.ActiveCfg = Release|Win32
+		{33A2C9EA-960D-4F11-B915-6622D80FD078}.Release|Win32.Build.0 = Release|Win32
+		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Debug|Win32.Build.0 = Debug|Win32
+		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Release|Win32.ActiveCfg = Release|Win32
+		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
