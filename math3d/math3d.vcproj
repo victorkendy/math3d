@@ -177,15 +177,27 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\core\math3d_plugin.cpp"
+				RelativePath=".\src\core\implementations\default\math3d_plugin.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\core\math3d_plugin_sse.cpp"
+				RelativePath=".\src\core\implementations\sse\math3d_plugin_sse.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\core\math3d_plugin_sse3.cpp"
+				RelativePath=".\src\core\implementations\sse3\math3d_plugin_sse3.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\default\matrix44_default.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\sse\matrix44_sse.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\sse3\matrix44_sse3.cpp"
 				>
 			</File>
 			<File
@@ -194,6 +206,30 @@
 			</File>
 			<File
 				RelativePath=".\src\utils\matrix_utils.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\default\quaternion_default.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\sse\quaternion_sse.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\sse3\quaternion_sse3.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\default\vector_default.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\sse3\vector_ss3.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\core\implementations\sse\vector_sse.cpp"
 				>
 			</File>
 		</Filter>

@@ -11,23 +11,6 @@ using namespace math3d;
 #include <pmmintrin.h>
 
 
-float4 & sse3Implementation::vecnormalize(float4 & v) {
-    __m128 vector = _mm_load_ps(v);
-    __m128 t = _mm_mul_ps(vector, vector);
-    t = _mm_hadd_ps(t,t);
-     _mm_store_ps(v,_mm_mul_ps(_mm_rsqrt_ps(_mm_hadd_ps(t,t)), vector));
-    return v;
-}
-
-const float sse3Implementation::vecdot(const float4 & v1, const float4 & v2) {
-    float resp;
-    __m128 t = _mm_mul_ps(_mm_load_ps(v1), _mm_load_ps(v2));
-    t = _mm_hadd_ps(t,t);
-    t = _mm_hadd_ps(t,t);
-    _mm_store_ss(&resp,t);
-    return resp;
-}
-
 float4 & sse3Implementation::qinverse(float4 & q) {
     __m128 _q = _mm_load_ps(q);
     __m128 conjugate = _mm_mul_ps(_q, _conjugate);
@@ -64,15 +47,6 @@ float4 & sse3Implementation::qmul(float4 & q1, const float4 & q2) {
     return q1;
 }
 
-float4& sse3Implementation::m44mulvec(float4 & a, const float4 m[4]) {
-	__m128 vec = _mm_load_ps(a);
-    __m128 m0 = _mm_load_ps(m[0]), m1 = _mm_load_ps(m[1]), m2 = _mm_load_ps(m[2]), m3 = _mm_load_ps(m[3]);
-	m0 = _mm_hadd_ps(_mm_mul_ps(m0,vec), _mm_mul_ps(m1,vec));
-	m1 = _mm_hadd_ps(_mm_mul_ps(m2,vec), _mm_mul_ps(m3,vec));
-    _mm_store_ps(a, _mm_hadd_ps(m0,m1));
-	return a;
-}
-
 void sse3Implementation::cvtqtom44(const float4 & q, float4 m[4]) {
     static const __m128 _mxy = _mm_set_ps(1,1,-1,-1);
     static const __m128 _myz = _mm_set_ps(1,-1,-1,1);
@@ -107,7 +81,3 @@ void sse3Implementation::cvtqtom44(const float4 & q, float4 m[4]) {
 }
 
 #endif
-const std::string sse3Implementation::getName() const { return "SSE 3"; }
-
-
-
