@@ -239,10 +239,6 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\aaa.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\math3d\utils\batch_operations.h"
 				>
 			</File>
