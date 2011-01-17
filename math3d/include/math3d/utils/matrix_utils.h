@@ -20,5 +20,11 @@ namespace math3d {
                                              const float & near, const float & far);
 
     EXPORT const matrix44 frustumMatrix(const float & left, const float & right, const float & bottom, const float & top, const float & near, const float & far);
+
+    EXPORT const matrix44 rotationMatrix(const float & angle, const float & x, const float & y, const float & z);
+
+    EXPORT const matrix44 scaleMatrix(const float & sx, const float & sy, const float & sz);
+    
+    EXPORT const matrix44 translationMatrix(const float & x, const float & y, const float & z);
 }
 #endif /* PROJECTION_H_ */

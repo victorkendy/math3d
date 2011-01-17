@@ -64,4 +64,42 @@ namespace math3d {
 
         return projectionMatrix;
     }
+
+    const matrix44 rotationMatrix(const float & angle, const float & x, const float & y, const float & z) {
+        float c = cos(angle), s = sin(angle);
+        float oneMinusC = (1 - c);
+        math3d::matrix44 m = math3d::identity44;
+        math3d::vector4 v(x,y,z,0);
+        v.normalize();
+
+        m[0][0] = v[0]*v[0]*oneMinusC + c;
+        m[1][0] = v[0]*v[1]*oneMinusC + v[2]*s;
+        m[2][0] = v[0]*v[2]*oneMinusC - v[1]*s;
+
+        m[0][1] = v[0]*v[1]*oneMinusC - v[2]*s;
+        m[1][1] = v[1]*v[1]*oneMinusC + c;
+        m[2][1] = v[1]*v[2]*oneMinusC + v[0]*s;
+
+        m[0][2] = v[0]*v[2]*oneMinusC + v[1]*s;
+        m[1][2] = v[1]*v[2]*oneMinusC - v[0]*s;
+        m[2][2] = v[2]*v[2]*oneMinusC + c;
+        return m;
+    }
+
+    const matrix44 scaleMatrix(const float & sx, const float & sy, const float & sz) {
+        matrix44 m = identity44;
+        m[0][0] *= sx;
+        m[1][1] *= sy;
+        m[2][2] *= sz;
+        return m;
+    }
+
+    const matrix44 translationMatrix(const float & x, const float & y, const float & z) {
+        matrix44 m = identity44;
+        m[0][3] = x;
+        m[1][3] = y;
+        m[2][3] = z;
+        return m;
+    }
+
 }

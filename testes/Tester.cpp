@@ -31,7 +31,7 @@ void runImplementationTests(math3d::math3dImplementation * implementation) {
     std::cout << std::endl;
 }
 
-#define num_iterations 100000000
+#define num_iterations 1000
 
 inline float random() {
     return (float)(rand())/(float)(RAND_MAX);
