@@ -8,6 +8,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testes", "testes\testes.vcp
 		{DED62760-09CF-4600-85BF-B53E5E93850D} = {DED62760-09CF-4600-85BF-B53E5E93850D}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "internal_tests", "internal_tests\internal_tests.vcproj", "{A74A01D8-30CE-4EFF-B131-D8E3F850A751}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DED62760-09CF-4600-85BF-B53E5E93850D} = {DED62760-09CF-4600-85BF-B53E5E93850D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -22,10 +27,10 @@ Global
 		{33A2C9EA-960D-4F11-B915-6622D80FD078}.Debug|Win32.Build.0 = Debug|Win32
 		{33A2C9EA-960D-4F11-B915-6622D80FD078}.Release|Win32.ActiveCfg = Release|Win32
 		{33A2C9EA-960D-4F11-B915-6622D80FD078}.Release|Win32.Build.0 = Release|Win32
-		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Debug|Win32.ActiveCfg = Debug|Win32
-		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Debug|Win32.Build.0 = Debug|Win32
-		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Release|Win32.ActiveCfg = Release|Win32
-		{020EA872-00A6-4E05-A3CD-208D1D8F0DF3}.Release|Win32.Build.0 = Release|Win32
+		{A74A01D8-30CE-4EFF-B131-D8E3F850A751}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A74A01D8-30CE-4EFF-B131-D8E3F850A751}.Debug|Win32.Build.0 = Debug|Win32
+		{A74A01D8-30CE-4EFF-B131-D8E3F850A751}.Release|Win32.ActiveCfg = Release|Win32
+		{A74A01D8-30CE-4EFF-B131-D8E3F850A751}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

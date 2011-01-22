@@ -9,7 +9,7 @@
 #define EXPORT_H_
 
 #ifdef _MSC_VER
-    #ifdef _EXPORT
+    #ifdef MATH3D_EXPORT
         #define EXPORT __declspec(dllexport)
     #else
         #define EXPORT __declspec(dllimport)
