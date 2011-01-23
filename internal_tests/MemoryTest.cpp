@@ -51,8 +51,9 @@ TEST(MemoryTest, internalMallocReturnsAlignedPointers) {
         ptrs[i] = math3d::internal_malloc(i+1, 4);
         EXPECT_TRUE(HasAlignment(ptrs[i], 4));
     }
+    math3d::print_internal_memory_page_info();
+
     for(int i = 0; i < 100; i++) {
         math3d::internal_free(ptrs[i]);
     }
-    math3d::print_internal_memory_page_info();
 }

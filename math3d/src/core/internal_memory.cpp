@@ -2,6 +2,7 @@
 #include <xmmintrin.h>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 #include "math3d/core/core.h"
 
@@ -105,6 +106,11 @@ namespace {
         }
         return page;
     }
+
+    void releasePage(MemoryPage * page) {
+        page_list::iterator location = std::find(pages.begin(), pages.end(), page);
+        pages.erase(location);
+    }
 }
 
 namespace math3d {
@@ -125,6 +131,8 @@ namespace math3d {
         MemoryPage * page = searchPageThatContains(p);
         if(page != NULL)
             page->release(p);
+        if(page->ref_count == 0) 
+            releasePage(page);
     }
 
 }

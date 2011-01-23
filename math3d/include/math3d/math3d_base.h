@@ -10,11 +10,11 @@ namespace math3d {
     class basicMath3dObject {
     public:
         void * operator new(size_t size){
-            return _aligned_malloc(size, 16);
+            return internal_malloc(size, 16);
         }
         
         void operator  delete(void * p){
-            _aligned_free(p);
+            internal_free(p);
         }
 
         void * operator new[] (size_t size) {
