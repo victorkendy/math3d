@@ -38,12 +38,21 @@ namespace {
         }
 
         bool can_alloc(size_t size) {
-            return (next_ptr + size) <= (page_pool + size);
+            return (next_ptr + size) <= (page_pool + pool_size);
         }
 
         bool contains(void * ptr) {
             char * _ptr = static_cast<char*>(ptr);
             return (_ptr >= page_pool && _ptr <= page_pool + pool_size);
+        }
+
+        void print_page_info() {
+            std::cout << "page pool address: " << (void*)page_pool << std::endl;
+            std::cout << "next ptr address: " << (void*)next_ptr << std::endl;
+            std::cout << "reference count: " << ref_count << std::endl;
+            std::cout << "page alignment: " << alignment << std::endl;
+            std::cout << "page size: " << pool_size << std::endl;
+            std::cout << std::endl;
         }
 
         char * page_pool;
@@ -99,8 +108,14 @@ namespace {
 }
 
 namespace math3d {
+    void print_internal_memory_page_info() {
+        page_list::iterator it;
+        for(it = pages.begin(); it != pages.end(); it++) 
+            (*it)->print_page_info();
+        std::cout << "number of pages: " << pages.size() << std::endl;
+    }
+
     void * internal_malloc(size_t size, size_t align) {
-        std::cout << "allocando " << size << " bytes" << std::endl;
         MemoryPage * page = searchPageThatCanAlloc(size, align);
         void * ptr = page->alloc(size);
         return ptr;

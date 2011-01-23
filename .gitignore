@@ -3,3 +3,5 @@ bin/
 *.ncb
 *.suo
 *.user
+*.lib
+internal_tests/libs
