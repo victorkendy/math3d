@@ -1,0 +1,24 @@
+Usage Recomendation:
+
+To avoid alignment issues you should use pointers to work with math3d structures to work with classes. With things that are allocated on the stack there is no known issue.
+Example:
+
+class X {
+public:
+    X() {
+        v = new math3d::vector4;
+    }
+    
+    math3d::vector4 & getV() {
+        return *v;
+    }
+    
+    cont math3d::vector4 doMathWithV() {
+        // this is allocated on the stack so it will be automatically aligned for you
+        math3d::vector4 w;
+        return math3d::cross(*v, w);
+    }
+private:
+    // if we had another field before v there would be no guarantee of alignment
+    math3d::vector4 * v;
+};

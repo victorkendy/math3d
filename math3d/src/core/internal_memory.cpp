@@ -47,12 +47,22 @@ namespace {
             return (_ptr >= page_pool && _ptr <= page_pool + pool_size);
         }
 
+        inline size_t memory_used() {
+            return (size_t)(next_ptr - page_pool);
+        }
+
+        inline size_t memory_free() {
+            return pool_size - memory_used();
+        }
+
         void print_page_info() {
             std::cout << "page pool address: " << (void*)page_pool << std::endl;
             std::cout << "next ptr address: " << (void*)next_ptr << std::endl;
             std::cout << "reference count: " << ref_count << std::endl;
             std::cout << "page alignment: " << alignment << std::endl;
             std::cout << "page size: " << pool_size << std::endl;
+            std::cout << "memory used: " << memory_used() << std::endl;
+            std::cout << "memory free: " << pool_size - memory_used() << std::endl;
             std::cout << std::endl;
         }
 
@@ -67,6 +77,7 @@ namespace {
         size_t pool_size;
 
     private:
+
         inline size_t size_offset(size_t size) {
             if(size % alignment == 0) return size;
             size_t offset = 0;
@@ -116,9 +127,24 @@ namespace {
 namespace math3d {
     void print_internal_memory_page_info() {
         page_list::iterator it;
-        for(it = pages.begin(); it != pages.end(); it++) 
+        
+        size_t total_memory = 0;
+        size_t free_memory = 0;
+        size_t total_used = 0;
+        
+        std::cout << "======= starting memory report =======" << std::endl;
+        for(it = pages.begin(); it != pages.end(); it++) {
             (*it)->print_page_info();
+            total_memory += (*it)->pool_size;
+            free_memory += (*it)->memory_free();
+            total_used += (*it)->memory_used();
+        }
         std::cout << "number of pages: " << pages.size() << std::endl;
+        std::cout << "total memory allocated: " << total_memory << std::endl;
+        std::cout << "total free memory: " << free_memory << std::endl;
+        std::cout << "total used: " << total_used << std::endl;
+
+        std::cout << "======== end of memory report ========" << std::endl << std::endl;
     }
 
     void * internal_malloc(size_t size, size_t align) {

@@ -6,6 +6,9 @@
 TEST(MemoryTest, internalMallocMustReturnAPointerThatIsNotNULL) {
     void * p = math3d::internal_malloc(16,16);
     EXPECT_TRUE(NotNULL(p));
+
+    math3d::print_internal_memory_page_info();
+
     math3d::internal_free(p);
 }
 
@@ -21,6 +24,8 @@ TEST(MemoryTest, internalMallocReturnsPoitersThatDontOverlap) {
     EXPECT_TRUE(MemoryDontOverlap(p1, size1, p2, size2));
     EXPECT_TRUE(MemoryDontOverlap(p1, size1, p3, size3));
     EXPECT_TRUE(MemoryDontOverlap(p2, size2, p3, size3));
+
+    math3d::print_internal_memory_page_info();
 
     math3d::internal_free(p1);
     math3d::internal_free(p2);
@@ -39,6 +44,8 @@ TEST(MemoryTest, internalMallocReturnsPoitersThatDontOverlapEvenIfSizesAreBig) {
     EXPECT_TRUE(MemoryDontOverlap(p1, size1, p2, size2));
     EXPECT_TRUE(MemoryDontOverlap(p1, size1, p3, size3));
     EXPECT_TRUE(MemoryDontOverlap(p2, size2, p3, size3));
+
+    math3d::print_internal_memory_page_info();
 
     math3d::internal_free(p1);
     math3d::internal_free(p2);
