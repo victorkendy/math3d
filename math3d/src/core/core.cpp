@@ -2,8 +2,6 @@
 #include <cstdio>
 #include <xmmintrin.h>
 
-#define _EXPORT
-
 #include "math3d/core/core.h"
 #include "math3d/core/math3d_plugin.h"
 #include "math3d/core/math3d_plugin_sse.h"

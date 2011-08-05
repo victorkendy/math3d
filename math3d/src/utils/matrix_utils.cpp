@@ -4,8 +4,6 @@
  *  Created on: Jun 30, 2010
  *      Author: kendy
  */
-#define _EXPORT
-
 #include <cmath>
 #include <iostream>
 

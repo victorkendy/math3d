@@ -1,6 +1,4 @@
 
-#define _EXPORT
-
 #include "math3d/core/math3d_plugin.h"
 
 namespace math3d {

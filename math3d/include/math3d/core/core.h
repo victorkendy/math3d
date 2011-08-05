@@ -2,6 +2,7 @@
 #ifndef math3d_h
 #define math3d_h 1
 
+#include <cstddef>
 #include "math3d/core/export.h"
 #include "math3d/core/math3d_plugin.h"
 

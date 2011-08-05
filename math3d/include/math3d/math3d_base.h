@@ -18,11 +18,11 @@ namespace math3d {
         }
 
         void * operator new[] (size_t size) {
-            return internal_malloc(size, 16);
+            return aligned_malloc(size, 16);
         }
 
         void operator delete[] (void * p) {
-            internal_free(p);
+            aligned_free(p);
         }
     };
 }
